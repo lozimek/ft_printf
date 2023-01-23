@@ -6,7 +6,7 @@
 /*   By: luozimek <luozimek@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:51:10 by luozimek          #+#    #+#             */
-/*   Updated: 2022/12/06 10:54:01 by luozimek         ###   ########.fr       */
+/*   Updated: 2023/01/23 10:58:10 by luozimek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,23 @@ int	ft_printf(const char *format, ...)
 		else
 			counter += write(1, &format[i], 1);
 		i++;
-	}
+	}	
 	va_end(args);
 	return (counter);
 }
+
+/*#include <stdio.h>
+int main()
+{
+	int		og;
+	int		mf;
+	//char	str[] = "Ecole42";
+	int c = 15000;
+	int h = 'c';
+	
+
+	og = printf("printed: %c\n Oh le test: %x\n", h, c);
+	mf = ft_printf("printed: %c\n Oh le test: %x\n", h, c);
+
+	printf("og = %i\n mf = %i\n", og, mf);
+}*/

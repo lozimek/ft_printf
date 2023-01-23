@@ -2,25 +2,27 @@ NAME = libftprintf.a
 
 SRCS = ft_my_fonctions.c ft_printf.c ft_parscheck.c
 
-OBJS = $(SRCS:.c=.o)
+OBJ = $(SRCS:.c=.o)
 
+#################### COMPILER ####################
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -I.
+CFLAGS = -Wall -Wextra -Werror
 
-.c.o:
-	$(CC) $(CFLAGS) -I ./includes -c $< -o $(<:.c=.o)
+.c.o:	$(H_FILE)
+		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
-all: $(NAME)
+#################### RULES ####################
+all :		$(NAME)
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+$(NAME):	$(OBJ)
+	ar crs $(NAME) $(OBJ)
 
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(OBJ)
 
-fclean: clean
+fclean:	clean
 	rm -rf $(NAME)
 
-re: fclean all
+re:		fclean all
 
-.PHONY: clean fclean re all
+.PHONY:	all clean fclean re bonus
